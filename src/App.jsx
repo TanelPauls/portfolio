@@ -4,7 +4,7 @@ import "./styles.css";
 function App() {
   const [activeModal, setActiveModal] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [likeCount, setLikeCount] = useState(0);
+  const [likeCounts, setLikeCounts] = useState({});
   const base = "/portfolio";
 
   const openModal = (index) => setActiveModal(index);
@@ -12,32 +12,9 @@ function App() {
   const toggleMenu = () => setMenuOpen((prev) => !prev);
   const closeMenu = () => setMenuOpen(false);
 
-  useEffect(() => {
-    fetch("https://vso24pauls.ita.voco.ee/portfolio/api/get-likes.php")
-      .then((res) => res.json())
-      .then((data) => setLikeCount(parseInt(data.count)))
-      .catch((err) => console.error("Failed to load likes", err));
-  }, []);
-
-  const handleLike = () => {
-    fetch("https://vso24pauls.ita.voco.ee/portfolio/api/add-likes.php", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ project: "global" }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        const newCount = parseInt(data.newCount);
-        console.log("✅ Received from server:", newCount);
-        setLikeCount((prev) =>
-          newCount !== prev ? newCount : prev + 0.000001
-        );
-      })
-      .catch((err) => console.error("❌ Like failed", err));
-  };
-
   const projects = [
     {
+      id: 1,
       title: "saewärk.ee",
       description:
         "Client project with React, Express, MariaDB, image processing via Sharp.",
@@ -47,6 +24,7 @@ function App() {
       live: "https://saewärk.ee",
     },
     {
+      id: 2,
       title: "Hackathon Game",
       description:
         "Fast-paced mini game built in a hackathon with React and Bootstrap.",
@@ -56,6 +34,7 @@ function App() {
       live: "https://vepso.ita.voco.ee/",
     },
     {
+      id: 3,
       title: "PHP Voting App",
       description: "Simple voting app using PHP and MariaDB. Quick prototype.",
       tech: ["PHP", "MariaDB"],
@@ -64,6 +43,42 @@ function App() {
       live: "https://vepso.ita.voco.ee/php-voting/",
     },
   ];
+
+  // Fetch like counts for each project
+  useEffect(() => {
+    projects.forEach((project) => {
+      fetch(
+        `https://vso24pauls.ita.voco.ee/portfolio/api/get-likes.php?id=${project.id}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setLikeCounts((prev) => ({
+            ...prev,
+            [data.id]: data.count,
+          }));
+        })
+        .catch((err) =>
+          console.error(`Failed to load likes for ID ${project.id}`, err)
+        );
+    });
+  }, []);
+
+  // Send a like for a given project ID
+  const handleLike = (id) => {
+    fetch("https://vso24pauls.ita.voco.ee/portfolio/api/add-likes.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `id=${id}`,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setLikeCounts((prev) => ({
+          ...prev,
+          [id]: data.newCount,
+        }));
+      })
+      .catch((err) => console.error("❌ Like failed", err));
+  };
 
   return (
     <>
@@ -174,13 +189,13 @@ function App() {
               <div className="like-button">
                 <button
                   onClick={(e) => {
-                    e.stopPropagation(); // avoid opening modal
-                    handleLike();
+                    e.stopPropagation(); // Avoid opening modal
+                    handleLike(project.id);
                   }}
                 >
                   👍 Like
                 </button>
-                <span>{likeCount} likes</span>
+                <span>{likeCounts[project.id] || 0} likes</span>
               </div>
             </div>
           ))}
