@@ -202,7 +202,10 @@ function App() {
                 >
                   👍 Like
                 </button>
-                <span>{likeCounts[project.id] || 0} likes</span>
+                <span>
+                  {likeCounts[project.id] || 0} potential employers have liked
+                  this picture.
+                </span>
               </div>
             </div>
           ))}
