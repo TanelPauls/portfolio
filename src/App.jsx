@@ -204,7 +204,7 @@ function App() {
                 </button>
                 <span>
                   {likeCounts[project.id] || 0} potential employers have liked
-                  this picture.
+                  this picture. Contact me fast!
                 </span>
               </div>
             </div>
