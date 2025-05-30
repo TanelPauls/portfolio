@@ -84,7 +84,10 @@ function App() {
     <>
       <header>
         <nav className="navbar">
-          <img src="/portfolio/logo.svg" alt="Logo" className="logo" />
+          <a href="#hero" onClick={closeMenu}>
+            <img src="/portfolio/logo.svg" alt="Logo" className="logo" />
+          </a>
+
           <div className="hamburger" onClick={toggleMenu}>
             ☰
           </div>
@@ -117,8 +120,8 @@ function App() {
           />
           <h1>Tanel Pauls</h1>
           <p>
-            Junior Software Developer passionate about clean code and creative
-            solutions.
+            Junior Software Developer passionate about things working; not
+            passionate about clean code.
           </p>
           <div className="hero-buttons">
             <a

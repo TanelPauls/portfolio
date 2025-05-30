@@ -92,15 +92,16 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 .tech-stack {
-  margin: 0.5rem 0;
+  display: flex;
+  flex-wrap: wrap; /* ✅ Enables wrapping */
+  gap: 0.5rem; /* Optional: adds space between badges */
 }
 .badge {
-  background: #e0f0ff;
-  color: #0077cc;
-  padding: 0.3rem 0.6rem;
-  margin-right: 0.4rem;
-  font-size: 0.8rem;
-  border-radius: 5px;
+  background: #eee;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  white-space: nowrap; /* optional: prevents text from breaking */
 }
 .project-img {
   width: 100%;
