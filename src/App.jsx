@@ -17,8 +17,8 @@ function App() {
       id: 1,
       title: "saewärk.ee",
       description:
-        "Client project with React, Express, MariaDB, image processing via Sharp.",
-      tech: ["React", "Express", "MariaDB", "Sharp"],
+        "Client project with React, Express, MariaDB, image processing via Sharp. I learned a lot about deloying a fullstack application.",
+      tech: ["React", "Express", "Bootstrap", "MariaDB", "Sharp"],
       image: `${base}/saewark.webp`,
       github: "https://github.com/",
       live: "https://saewärk.ee",
@@ -27,7 +27,7 @@ function App() {
       id: 2,
       title: "Hackathon Game",
       description:
-        "Fast-paced mini game built in a hackathon with React and Bootstrap.",
+        "Mini game built within a timelimit, in a hackathon with React and Bootstrap.",
       tech: ["React", "Bootstrap"],
       image: `${base}/hackathon-game.webp`,
       github: "https://github.com/TanelPauls/VEPSo",
@@ -36,7 +36,7 @@ function App() {
     {
       id: 3,
       title: "PHP Voting App",
-      description: "Simple voting app using PHP and MariaDB. Quick prototype.",
+      description: "Voting app using PHP and MariaDB.",
       tech: ["PHP", "MariaDB"],
       image: `${base}/php-voting.webp`,
       github: "https://github.com/TanelPauls/php-voting",
@@ -171,13 +171,16 @@ function App() {
                 />
               )}
               <div className="project-buttons">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
+                {/* Only show GitHub for all projects except the first one */}
+                {index !== 0 && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                  </a>
+                )}
                 <a
                   href={project.live}
                   target="_blank"
@@ -186,6 +189,7 @@ function App() {
                   Live Demo
                 </a>
               </div>
+
               <div className="like-button">
                 <button
                   onClick={(e) => {
