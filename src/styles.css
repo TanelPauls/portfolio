@@ -172,3 +172,18 @@ body {
   height: 40px;
   width: auto;
 }
+.like-button {
+  margin-top: 0.5rem;
+}
+.like-button button {
+  background: #0077cc;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  margin-right: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.like-button span {
+  font-weight: bold;
+}

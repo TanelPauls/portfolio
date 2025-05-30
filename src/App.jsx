@@ -1,15 +1,40 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./styles.css";
 
 function App() {
   const [activeModal, setActiveModal] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [likeCount, setLikeCount] = useState(0);
+  const base = "/portfolio";
 
   const openModal = (index) => setActiveModal(index);
   const closeModal = () => setActiveModal(null);
   const toggleMenu = () => setMenuOpen((prev) => !prev);
   const closeMenu = () => setMenuOpen(false);
-  const base = "/portfolio";
+
+  useEffect(() => {
+    fetch("https://vso24pauls.ita.voco.ee/portfolio/api/get-likes.php")
+      .then((res) => res.json())
+      .then((data) => setLikeCount(parseInt(data.count)))
+      .catch((err) => console.error("Failed to load likes", err));
+  }, []);
+
+  const handleLike = () => {
+    fetch("https://vso24pauls.ita.voco.ee/portfolio/api/add-likes.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ project: "global" }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const newCount = parseInt(data.newCount);
+        console.log("✅ Received from server:", newCount);
+        setLikeCount((prev) =>
+          newCount !== prev ? newCount : prev + 0.000001
+        );
+      })
+      .catch((err) => console.error("❌ Like failed", err));
+  };
 
   const projects = [
     {
@@ -27,7 +52,7 @@ function App() {
         "Fast-paced mini game built in a hackathon with React and Bootstrap.",
       tech: ["React", "Bootstrap"],
       image: `${base}/hackathon-game.webp`,
-      github: "https://github.com/",
+      github: "https://github.com/TanelPauls/VEPSo",
       live: "https://vepso.ita.voco.ee/",
     },
     {
@@ -35,7 +60,7 @@ function App() {
       description: "Simple voting app using PHP and MariaDB. Quick prototype.",
       tech: ["PHP", "MariaDB"],
       image: `${base}/php-voting.webp`,
-      github: "https://github.com/",
+      github: "https://github.com/TanelPauls/php-voting",
       live: "https://vepso.ita.voco.ee/php-voting/",
     },
   ];
@@ -81,7 +106,11 @@ function App() {
             solutions.
           </p>
           <div className="hero-buttons">
-            <a href="https://github.com/" target="_blank" rel="noopener">
+            <a
+              href="https://github.com/TanelPauls"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               GitHub
             </a>
             <a href="/resume.pdf" download>
@@ -127,17 +156,35 @@ function App() {
                 />
               )}
               <div className="project-buttons">
-                <a href={project.github} target="_blank">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   GitHub
                 </a>
-                <a href={project.live} target="_blank">
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Live Demo
                 </a>
+              </div>
+              <div className="like-button">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation(); // avoid opening modal
+                    handleLike();
+                  }}
+                >
+                  👍 Like
+                </button>
+                <span>{likeCount} likes</span>
               </div>
             </div>
           ))}
 
-          {/* Modal */}
           {activeModal !== null && (
             <div className="modal-overlay" onClick={closeModal}>
               <div
