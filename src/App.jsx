@@ -3,6 +3,7 @@ import Projects from "./Projects";
 import { useState } from "react";
 import "./styles.css";
 import ContactForm from "./ContactForm";
+import Footer from "./Footer";
 
 function App() {
   const base = "/portfolio";
@@ -56,6 +57,7 @@ function App() {
           <ContactForm />
         </section>
       </main>
+      <Footer />
     </>
   );
 }

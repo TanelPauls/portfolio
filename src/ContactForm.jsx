@@ -47,6 +47,13 @@ const ContactForm = () => {
           If you’d like to work together, drop me a message using this form.
           I’ll respond as soon as I can.
         </p>
+        <p>
+          <strong>Email:</strong>{" "}
+          <a href="mailto:Tanel.Pauls@voco.ee">Tanel.Pauls@voco.ee</a>
+        </p>
+        <p>
+          <strong>Phone:</strong> <a href="tel:+37251946343">+372 519 46343</a>
+        </p>
       </div>
 
       <form className="contact-form" onSubmit={handleSubmit}>
