@@ -1,7 +1,33 @@
+import { FaSearch, FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+
 const ProjectCard = ({ project, index, likeCount, onLike, onOpenModal }) => {
   return (
     <div className="project-wrapper">
-      <div className="project-card" onClick={onOpenModal}>
+      <div className="project-card">
+        <div className="card-overlay">
+          <button onClick={() => onOpenModal()} title="Inspect">
+            <FaSearch />
+          </button>
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Live"
+          >
+            <FaExternalLinkAlt />
+          </a>
+          {project.github && index !== 0 && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="GitHub"
+            >
+              <FaGithub />
+            </a>
+          )}
+        </div>
+
         <h3>{project.title}</h3>
         {project.image && (
           <img
@@ -20,11 +46,11 @@ const ProjectCard = ({ project, index, likeCount, onLike, onOpenModal }) => {
         <p>{project.description}</p>
       </div>
 
-      {/* Like button now outside the clickable card */}
+      {/* Like button below the card */}
       <div className="like-button">
         <button
           onClick={(e) => {
-            e.stopPropagation(); // still needed if wrapper ever gets a click
+            e.stopPropagation();
             onLike(project.id);
           }}
         >
