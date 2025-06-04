@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
+import ProjectModal from "./ProjectModal";
 
 const Projects = () => {
   const [activeModal, setActiveModal] = useState(null);
@@ -91,18 +92,11 @@ const Projects = () => {
         ))}
       </div>
 
-      {activeModal !== null && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h3>{projects[activeModal].title}</h3>
-            {projects[activeModal].image && (
-              <img src={projects[activeModal].image} alt="Project" />
-            )}
-            <p>{projects[activeModal].description}</p>
-            <button onClick={closeModal}>Close</button>
-          </div>
-        </div>
-      )}
+      <ProjectModal
+        isOpen={activeModal !== null}
+        onClose={closeModal}
+        project={projects[activeModal]}
+      />
     </section>
   );
 };
