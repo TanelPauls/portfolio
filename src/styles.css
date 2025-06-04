@@ -201,6 +201,7 @@ body {
 @media (max-width: 768px) {
   .hamburger {
     display: block;
+    font-size: 2rem;
   }
 
   .nav-links {
@@ -220,9 +221,17 @@ body {
   }
 }
 .like-button {
-  margin-top: 0.75rem;
-  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+  background: #e4e2f1;
+  border-radius: 0 0 0.75rem 0.75rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
+
 .like-button button {
   background: #0077cc;
   color: white;
@@ -355,4 +364,13 @@ body {
   height: 120px;
   object-fit: cover;
   border-radius: 50%;
+}
+.project-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.like-button button:hover {
+  background: #005fa3;
+  filter: brightness(1.05);
 }
