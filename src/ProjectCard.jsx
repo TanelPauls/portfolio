@@ -38,8 +38,8 @@ const ProjectCard = ({ project, index, likeCount, onLike, onOpenModal }) => {
           👍 Like
         </button>
         <span>
-          {likeCount} potential employers have liked this picture. Contact me
-          fast!
+          {likeCount} potential employers have already liked this picture.
+          Contact me fast!
         </span>
       </div>
     </div>

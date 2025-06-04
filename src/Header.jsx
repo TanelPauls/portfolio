@@ -1,25 +1,18 @@
 import { useState } from "react";
+import MobileMenu from "./MobileMenu";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleMenu = () => setMenuOpen((prev) => !prev);
-  const closeMenu = () => setMenuOpen(false);
-
   return (
     <header>
       <nav className="navbar">
-        <a href="#hero" onClick={closeMenu}>
+        <a href="#hero">
           <img src="/portfolio/logo.svg" alt="Logo" className="logo" />
         </a>
 
-        <div className="hamburger" onClick={toggleMenu}>
-          ☰
-        </div>
-        <ul
-          className={`nav-links ${menuOpen ? "open" : ""}`}
-          onClick={closeMenu}
-        >
+        {/* Desktop Nav */}
+        <ul className="nav-links">
           <li>
             <a href="#hero">Home</a>
           </li>
@@ -33,7 +26,15 @@ const Header = () => {
             <a href="#contact">Contact</a>
           </li>
         </ul>
+
+        {/* Mobile Hamburger */}
+        <div className="hamburger" onClick={() => setMenuOpen(true)}>
+          ☰
+        </div>
       </nav>
+
+      {/* Mobile Slide-in Menu */}
+      <MobileMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
     </header>
   );
 };
