@@ -11,7 +11,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.5rem 1.5rem;
   border-bottom: 1px solid #ccc;
   z-index: 1000;
 }
@@ -19,6 +19,8 @@ body {
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
+  height: 60px;
+  width: auto;
 }
 
 .hamburger {
@@ -36,11 +38,17 @@ body {
 .nav-links a {
   text-decoration: none;
   color: #333;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #0077cc;
+  text-decoration: underline;
 }
 
 .section {
   padding: 3rem 2rem;
-  max-width: 800px;
+  max-width: 1200px;
   margin: auto;
 }
 
@@ -50,10 +58,10 @@ body {
 }
 
 .profile-pic {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 40%;
   margin-bottom: 1rem;
 }
 
@@ -81,41 +89,40 @@ body {
 }
 
 .project-card {
-  border: 1px solid #ddd;
+  background-color: #fff;
   padding: 1rem;
-  margin-bottom: 2rem;
-  border-radius: 8px;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: box-shadow 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .project-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 .tech-stack {
-  display: flex;
-  flex-wrap: wrap; /* ✅ Enables wrapping */
-  gap: 0.5rem; /* Optional: adds space between badges */
+  margin-top: 0.5rem;
 }
 .badge {
+  display: inline-block;
   background: #eee;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  white-space: nowrap; /* optional: prevents text from breaking */
+  padding: 0.25rem 0.5rem;
+  margin: 0.2rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
 }
 .project-img {
-  width: 100%;
-  height: auto; /* ensures natural scaling */
-  display: block;
-  margin: 1rem 0;
-  border-radius: 6px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 0.5rem 0;
 }
 
-.project-buttons a {
-  margin-right: 1rem;
-  color: #0077cc;
-  text-decoration: none;
-  font-weight: bold;
+.project-buttons {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .modal-overlay {
@@ -169,12 +176,9 @@ body {
     display: flex;
   }
 }
-.logo {
-  height: 40px;
-  width: auto;
-}
 .like-button {
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
 }
 .like-button button {
   background: #0077cc;
@@ -187,4 +191,10 @@ body {
 }
 .like-button span {
   font-weight: bold;
+}
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
