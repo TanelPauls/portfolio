@@ -482,3 +482,8 @@ body {
 .modal-x-button:hover {
   color: #0077cc;
 }
+.no-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}

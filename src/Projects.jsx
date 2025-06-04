@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 
@@ -7,8 +7,30 @@ const Projects = () => {
   const [likeCounts, setLikeCounts] = useState({});
   const base = "/portfolio";
 
-  const openModal = (index) => setActiveModal(index);
-  const closeModal = () => setActiveModal(null);
+  const scrollPositionRef = useRef(0);
+
+  const openModal = (index) => {
+    scrollPositionRef.current = window.scrollY;
+
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollPositionRef.current}px`;
+    document.body.style.width = "100%";
+
+    setActiveModal(index);
+  };
+
+  const closeModal = () => {
+    const scrollY = scrollPositionRef.current;
+
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.width = "";
+
+    // Restore scroll position
+    window.scrollTo(0, scrollY);
+
+    setActiveModal(null);
+  };
 
   const projects = [
     {
