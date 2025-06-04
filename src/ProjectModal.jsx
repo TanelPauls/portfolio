@@ -5,6 +5,10 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <button className="modal-x-button" onClick={onClose}>
+          ✕
+        </button>
+
         <h2>{project.title}</h2>
         {project.modalImage && (
           <img src={project.modalImage} alt={`${project.title} detail`} />
@@ -18,7 +22,9 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
         </div>
         <p>{project.modalDescription || project.description}</p>
 
-        <button onClick={onClose}>Close</button>
+        <button className="modal-close-button" onClick={onClose}>
+          Close
+        </button>
       </div>
     </div>
   );

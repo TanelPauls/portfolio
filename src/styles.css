@@ -279,6 +279,7 @@ body {
 }
 
 .modal-content {
+  position: relative;
   background: white;
   padding: 2rem;
   border-radius: 10px;
@@ -450,4 +451,34 @@ body {
   height: 120px;
   object-fit: cover;
   border-radius: 50%;
+}
+.modal-close-button {
+  background: #0077cc;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.modal-close-button:hover {
+  background: #005fa3;
+}
+.modal-x-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+  z-index: 10;
+  transition: color 0.2s ease;
+}
+
+.modal-x-button:hover {
+  color: #0077cc;
 }
