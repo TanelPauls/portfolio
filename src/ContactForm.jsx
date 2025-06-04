@@ -18,7 +18,7 @@ const ContactForm = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("/contact.php", {
+      const res = await fetch("/portfolio/contact.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
