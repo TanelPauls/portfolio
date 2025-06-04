@@ -285,6 +285,9 @@ body {
   border-radius: 10px;
   width: 90%;
   max-width: 600px;
+  max-height: 90vh; /* Limit to viewport */
+  overflow-y: auto; /* Enable scroll inside */
+  box-sizing: border-box;
 }
 
 .modal-content img {
