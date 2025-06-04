@@ -1,0 +1,92 @@
+import { useState } from "react";
+
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch("/contact.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(formData).toString(),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        alert("Message sent!");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        alert("Error: " + data.message);
+      }
+    } catch (err) {
+      alert("Something went wrong.");
+      console.error(err);
+    }
+  };
+
+  return (
+    <div className="contact-layout">
+      <div className="contact-info">
+        <p>
+          If you’d like to work together, drop me a message using this form.
+          I’ll respond as soon as I can.
+        </p>
+      </div>
+
+      <form className="contact-form" onSubmit={handleSubmit}>
+        <label>
+          Name:
+          <input
+            type="text"
+            name="name"
+            required
+            value={formData.name}
+            onChange={handleChange}
+          />
+        </label>
+
+        <label>
+          Email:
+          <input
+            type="email"
+            name="email"
+            required
+            value={formData.email}
+            onChange={handleChange}
+          />
+        </label>
+
+        <label>
+          Message:
+          <textarea
+            name="message"
+            required
+            rows="5"
+            value={formData.message}
+            onChange={handleChange}
+          />
+        </label>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  );
+};
+
+export default ContactForm;

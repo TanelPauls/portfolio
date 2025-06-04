@@ -2,6 +2,7 @@ import Header from "./Header";
 import Projects from "./Projects";
 import { useState } from "react";
 import "./styles.css";
+import ContactForm from "./ContactForm";
 
 function App() {
   const base = "/portfolio";
@@ -52,10 +53,7 @@ function App() {
 
         <section id="contact" className="section contact">
           <h2>Contact</h2>
-          <p>
-            Email me at:{" "}
-            <a href="mailto:Tanel.Pauls@voco.ee">Tanel.Pauls@voco.ee</a>
-          </p>
+          <ContactForm />
         </section>
       </main>
     </>
