@@ -421,3 +421,54 @@ body {
   border-color: #0077cc;
   transform: scale(1.1);
 }
+@media (max-width: 768px) {
+  .card-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+.card-actions-mobile {
+  display: none;
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.card-actions-mobile button,
+.card-actions-mobile a,
+.card-overlay button,
+.card-overlay a {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 0.5rem;
+  font-size: 1.4rem;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.card-actions-mobile button:hover,
+.card-actions-mobile a:hover,
+.card-overlay button:hover,
+.card-overlay a:hover {
+  background: #0077cc;
+  color: white;
+  border-color: #0077cc;
+  transform: scale(1.1);
+}
+
+/* Mobile-only override */
+@media (max-width: 768px) {
+  .card-overlay {
+    display: none;
+  }
+
+  .card-actions-mobile {
+    display: flex;
+  }
+}

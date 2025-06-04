@@ -4,6 +4,7 @@ const ProjectCard = ({ project, index, likeCount, onLike, onOpenModal }) => {
   return (
     <div className="project-wrapper">
       <div className="project-card">
+        {/* Overlay for desktop */}
         <div className="card-overlay">
           <button onClick={() => onOpenModal()} title="Inspect">
             <FaSearch />
@@ -44,13 +45,38 @@ const ProjectCard = ({ project, index, likeCount, onLike, onOpenModal }) => {
           ))}
         </div>
         <p>{project.description}</p>
+
+        {/* Buttons for mobile only */}
+        <div className="card-actions-mobile">
+          <button onClick={() => onOpenModal()} title="Inspect">
+            <FaSearch />
+          </button>
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Live"
+          >
+            <FaExternalLinkAlt />
+          </a>
+          {project.github && index !== 0 && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="GitHub"
+            >
+              <FaGithub />
+            </a>
+          )}
+        </div>
       </div>
 
-      {/* Like button below the card */}
+      {/* Like button always visible, under the card */}
       <div className="like-button">
         <button
           onClick={(e) => {
-            e.stopPropagation();
+            e.stopPropagation(); // avoid triggering modal
             onLike(project.id);
           }}
         >
