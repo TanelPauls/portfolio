@@ -6,15 +6,18 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <h2>{project.title}</h2>
-        {project.image && <img src={project.image} alt={project.title} />}
-        <p>{project.description}</p>
+        {project.modalImage && (
+          <img src={project.modalImage} alt={`${project.title} detail`} />
+        )}
         <div className="tech-stack">
-          {project.tech.map((tech, index) => (
+          {project.features.map((tech, index) => (
             <span key={index} className="badge">
               {tech}
             </span>
           ))}
         </div>
+        <p>{project.modalDescription || project.description}</p>
+
         <button onClick={onClose}>Close</button>
       </div>
     </div>
