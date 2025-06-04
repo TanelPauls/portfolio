@@ -53,7 +53,6 @@ function App() {
         <Projects />
 
         <section id="contact" className="section contact">
-          <h2>Contact</h2>
           <ContactForm />
         </section>
       </main>

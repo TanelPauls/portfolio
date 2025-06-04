@@ -43,9 +43,11 @@ const ContactForm = () => {
   return (
     <div className="contact-layout">
       <div className="contact-info">
+        <h2>Contact</h2>
         <p>
-          If you’d like to work together, drop me a message using this form.
-          I’ll respond as soon as I can.
+          If you're working on a project, that might interest me,<br></br> feel
+          free to drop me a message using this form.<br></br>I'll respond as
+          soon as I can - or better yet, give me a call!
         </p>
         <p>
           <strong>Email:</strong>{" "}

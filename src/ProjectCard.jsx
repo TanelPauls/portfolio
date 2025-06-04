@@ -24,7 +24,7 @@ const ProjectCard = ({ project, index, likeCount, onLike, onOpenModal }) => {
           </a>
         )}
         <a href={project.live} target="_blank" rel="noopener noreferrer">
-          Live Demo
+          Live
         </a>
       </div>
 

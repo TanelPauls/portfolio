@@ -11,7 +11,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 1.5rem;
+  padding: 0rem 0.3rem;
   border-bottom: 1px solid #ccc;
   z-index: 1000;
 }
@@ -32,17 +32,21 @@ body {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 0.25rem;
 }
 
 .nav-links a {
+  display: block; /* makes the whole area clickable */
+  padding: 0.5rem 1rem; /* adds clickable space around text */
   text-decoration: none;
   color: #333;
-  transition: color 0.2s ease;
+  border-radius: 0.5rem;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .nav-links a:hover {
-  color: #0077cc;
+  background: #f5faff; /* hero background color */
+  color: #044b7e;
   text-decoration: underline;
 }
 
