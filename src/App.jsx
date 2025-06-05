@@ -21,8 +21,8 @@ function App() {
           />
           <h1>Tanel Pauls</h1>
           <p>
-            Junior Software Developer passionate about things working; not
-            passionate about clean code.
+            I build things that work. I enjoy backend and database development —
+            solving the logic and structure that powers the front.
           </p>
           <div className="hero-buttons">
             <a
@@ -32,24 +32,23 @@ function App() {
             >
               GitHub
             </a>
-            <a href="/resume.pdf" download>
-              Download Resume
-            </a>
           </div>
         </section>
 
         <section id="about" className="section">
           <h2>About Me</h2>
           <p>
-            I’m a junior developer based in Estonia with a background in
-            software development and a passion for building responsive web apps.
-          </p>
-          <p>
-            <strong>Education:</strong> Vocational training in software
-            development (Tartu VOCO)
+            Practical experience meets purposeful development. With a background
+            in managing a cherry orchard and solving real-world problems, the
+            focus now is on building efficient, full-stack web apps that solve
+            actual needs.
+            <br />
+            The goal: automate the boring parts, streamline everyday tasks, and
+            deliver tools that actually make life easier — ideally without too
+            many side effects. Currently sharpened through formal training at
+            Tartu VOCO in software development.
           </p>
         </section>
-
         <Projects />
 
         <section id="contact" className="section contact">
