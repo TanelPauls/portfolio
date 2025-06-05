@@ -54,7 +54,7 @@ const ContactForm = () => {
           <a href="mailto:Tanel.Pauls@voco.ee">Tanel.Pauls@voco.ee</a>
         </p>
         <p>
-          <strong>Phone:</strong> <a href="tel:+37251946343">+372 519 46343</a>
+          <strong>Phone:</strong> <a href="tel:+37251946343">+372 5194 6343</a>
         </p>
       </div>
 
