@@ -1,16 +1,45 @@
 import Header from "./Header";
 import Projects from "./Projects";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./styles.css";
 import ContactForm from "./ContactForm";
 import Footer from "./Footer";
 
 function App() {
   const base = "/portfolio";
+  const [activeSection, setActiveSection] = useState("hero");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["hero", "about", "projects", "contact"];
+      let current = "hero";
+      let maxVisibleHeight = 0;
+
+      for (let id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          const visibleHeight =
+            Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+          if (visibleHeight > maxVisibleHeight) {
+            maxVisibleHeight = visibleHeight;
+            current = id;
+          }
+        }
+      }
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // run once on mount in case user reloads mid-page
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
-      <Header />
+      <Header activeSection={activeSection} />
 
       <main>
         <section id="hero" className="section hero">

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import MobileMenu from "./MobileMenu";
 
-const Header = () => {
+const Header = ({ activeSection }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <header>
@@ -12,18 +13,41 @@ const Header = () => {
         </a>
 
         {/* Desktop Nav */}
-        <ul className="nav-links">
+        <ul
+          className={`nav-links ${menuOpen ? "open" : ""}`}
+          onClick={closeMenu}
+        >
           <li>
-            <a href="#hero">Home</a>
+            <a
+              href="#hero"
+              className={activeSection === "hero" ? "active" : ""}
+            >
+              Home
+            </a>
           </li>
           <li>
-            <a href="#about">About</a>
+            <a
+              href="#about"
+              className={activeSection === "about" ? "active" : ""}
+            >
+              About
+            </a>
           </li>
           <li>
-            <a href="#projects">Projects</a>
+            <a
+              href="#projects"
+              className={activeSection === "projects" ? "active" : ""}
+            >
+              Projects
+            </a>
           </li>
           <li>
-            <a href="#contact">Contact</a>
+            <a
+              href="#contact"
+              className={activeSection === "contact" ? "active" : ""}
+            >
+              Contact
+            </a>
           </li>
         </ul>
 

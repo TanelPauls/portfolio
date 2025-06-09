@@ -536,3 +536,8 @@ header {
 .about-content p {
   margin-bottom: 1.5rem;
 }
+.nav-links a.active {
+  color: #0077cc;
+  font-weight: bold;
+  text-decoration: underline;
+}
