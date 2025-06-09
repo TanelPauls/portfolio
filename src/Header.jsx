@@ -51,13 +51,11 @@ const Header = ({ activeSection }) => {
           </li>
         </ul>
 
-        {/* Mobile Hamburger */}
         <div className="hamburger" onClick={() => setMenuOpen(true)}>
           ☰
         </div>
       </nav>
 
-      {/* Mobile Slide-in Menu */}
       <MobileMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
     </header>
   );

@@ -5,7 +5,6 @@ body {
   line-height: 1.6;
 }
 
-/* === NAVBAR === */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -19,7 +18,7 @@ body {
 }
 
 .logo {
-  font-size: 1.49rem;
+  font-size: 1.5rem;
   font-weight: bold;
   height: 48px;
   width: auto;
