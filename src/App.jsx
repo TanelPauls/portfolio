@@ -37,18 +37,22 @@ function App() {
 
         <section id="about" className="section">
           <h2>About Me</h2>
-          <p>
-            Practical experience meets purposeful development. With a background
-            in managing a cherry orchard and solving real-world problems, the
-            focus now is on building efficient, full-stack web apps that solve
-            actual needs.
-            <br />
-            The goal: automate the boring parts, streamline everyday tasks, and
-            deliver tools that actually make life easier — ideally without too
-            many side effects. Currently sharpened through formal training at
-            Tartu VOCO in software development.
-          </p>
+          <div className="about-content">
+            <p>
+              Practical experience meets purposeful development. With a
+              background in managing a cherry orchard and solving real-world
+              problems, the focus now is on building efficient, full-stack web
+              apps that solve actual needs.
+            </p>
+            <p>
+              The goal: automate the boring parts, streamline everyday tasks,
+              and deliver tools that actually make life easier — ideally without
+              too many side effects. Currently sharpened through formal training
+              at Tartu VOCO in software development.
+            </p>
+          </div>
         </section>
+
         <Projects />
 
         <section id="contact" className="section contact">

@@ -44,7 +44,9 @@ const ProjectCard = ({ project, index, likeCount, onLike, onOpenModal }) => {
             </span>
           ))}
         </div>
-        <p>{project.description}</p>
+        <div className="description-wrapper">
+          <p>{project.description}</p>
+        </div>
 
         {/* Buttons for mobile only */}
         <div className="card-actions-mobile">

@@ -39,6 +39,10 @@ const ContactForm = () => {
       console.error(err);
     }
   };
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("Tanel.Pauls@voco.ee");
+    alert("Copied to clipboard!");
+  };
 
   return (
     <div className="contact-layout">
@@ -50,8 +54,10 @@ const ContactForm = () => {
           soon as I can - or better yet, give me a call!
         </p>
         <p>
-          <strong>Email:</strong>{" "}
-          <a href="mailto:Tanel.Pauls@voco.ee">Tanel.Pauls@voco.ee</a>
+          <strong>Email:</strong> Tanel.Pauls@voco.ee{" "}
+          <button className="copy-button" onClick={() => handleCopyEmail()}>
+            Copy
+          </button>
         </p>
         <p>
           <strong>Phone:</strong> <a href="tel:+37251946343">+372 5194 6343</a>
