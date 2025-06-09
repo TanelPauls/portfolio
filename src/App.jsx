@@ -59,7 +59,7 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub's
+              GitHub
             </a>
           </div>
         </section>
