@@ -61,6 +61,13 @@ function App() {
             >
               GitHub
             </a>
+            <a
+              href="https://vso24pauls.ita.voco.ee/portfolio/Tanel_Pauls_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View My Resume (PDF)
+            </a>
           </div>
         </section>
 
