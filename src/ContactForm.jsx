@@ -65,38 +65,38 @@ const ContactForm = () => {
       </div>
 
       <form className="contact-form" onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input
-            type="text"
-            name="name"
-            required
-            value={formData.name}
-            onChange={handleChange}
-          />
-        </label>
+        <label htmlFor="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your name"
+          required
+          value={formData.name}
+          onChange={handleChange}
+        />
 
-        <label>
-          Email:
-          <input
-            type="email"
-            name="email"
-            required
-            value={formData.email}
-            onChange={handleChange}
-          />
-        </label>
+        <label htmlFor="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email address"
+          required
+          value={formData.email}
+          onChange={handleChange}
+        />
 
-        <label>
-          Message:
-          <textarea
-            name="message"
-            required
-            rows="5"
-            value={formData.message}
-            onChange={handleChange}
-          />
-        </label>
+        <label htmlFor="message">Message:</label>
+        <textarea
+          name="message"
+          id="message"
+          placeholder="Type your message here"
+          required
+          rows="5"
+          value={formData.message}
+          onChange={handleChange}
+        />
 
         <button type="submit">Send Message</button>
       </form>
