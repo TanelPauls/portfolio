@@ -147,6 +147,7 @@ body {
   display: flex;
   flex-direction: column;
   font-weight: bold;
+  gap: 0.25rem;
 }
 
 .contact-form input,
